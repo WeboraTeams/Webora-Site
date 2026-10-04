@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webora Teams | Ultra-Luxury Digital Architecture & Web Engineering (Al Khobar)</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#f6d365',
+                            500: '#D4AF37',
+                            600: '#aa820a',
+                            glow: 'rgba(212, 175, 55, 0.4)'
+                        },
+                        darkBg: '#040407',
+                        darkNavy: '#0a0e1a',
+                        purpleGlow: '#8b5cf6',
+                        cyanGlow: '#00f0ff'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Outfit', 'sans-serif'],
+                        arabic: ['Cairo', 'Tajawal', 'sans-serif']
+                    },
+                    animation: {
+                        'orb-float-1': 'floatOrb1 18s ease-in-out infinite alternate',
+                        'orb-float-2': 'floatOrb2 22s ease-in-out infinite alternate',
+                        'orb-float-3': 'floatOrb3 20s ease-in-out infinite alternate',
+                        'marquee': 'marquee 25s linear infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        floatOrb1: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '100%': { transform: 'translate(120px, -80px) scale(1.2)' }
+                        },
+                        floatOrb2: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '100%': { transform: 'translate(-100px, 100px) scale(1.15)' }
+                        },
+                        floatOrb3: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '100%': { transform: 'translate(80px, 90px) scale(0.9)' }
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.6, filter: 'drop-shadow(0 0 15px rgba(212,175,55,0.4))' },
+                            '50%': { opacity: 1, filter: 'drop-shadow(0 0 30px rgba(212,175,55,0.8))' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --luxury-transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            background-color: #040407;
+            color: #f3f4f6;
+            font-family: 'Outfit', 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Luxury motion default */
+        .luxury-motion {
+            transition: var(--luxury-transition);
+        }
+
+        /* Enhanced Deep Glassmorphism Depth */
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-panel-gold {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(212, 175, 55, 0.4);
+        }
+
+        .glass-input {
+            background: rgba(10, 14, 26, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            transition: var(--luxury-transition);
+        }
+
+        .glass-input:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            outline: none;
+        }
+
+        .glass-input option {
+            background-color: #0a0e1a !important;
+            color: #ffffff !important;
+        }
+
+        /* Glowing Text Effects */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 0%, #F6D365 40%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .silver-gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 0%, #A1A1AA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 3D Tilt Card Base */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            will-change: transform;
+            transition: var(--luxury-transition);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #040407;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(212, 175, 55, 0.6);
+        }
+
+        /* Custom Cursor Follower */
+        #cursor-dot {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background-color: #D4AF37;
+            border-radius: 50%;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+            box-shadow: 0 0 15px #D4AF37, 0 0 30px #D4AF37;
+        }
+        #cursor-ring {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 50%;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
+        }
+
+        /* RTL Dynamic Styling Adjustments */
+        [dir="rtl"] {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+        }
+        [dir="rtl"] .rtl-flip {
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- Custom Cursor Follower (Desktop) -->
+    <div id="cursor-dot" class="hidden md:block"></div>
+    <div id="cursor-ring" class="hidden md:block"></div>
+
+    <!-- Liquid Background Ambient glowing Orbs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-gold-500/15 rounded-full blur-[140px] animate-orb-float-1"></div>
+        <div class="absolute top-1/3 -right-40 w-[650px] h-[650px] bg-purpleGlow/15 rounded-full blur-[160px] animate-orb-float-2"></div>
+        <div class="absolute -bottom-40 left-1/3 w-[550px] h-[550px] bg-cyanGlow/10 rounded-full blur-[150px] animate-orb-float-3"></div>
+        <!-- Grid overlay overlay for luxury texture -->
+        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:32px_32px]"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex items-center justify-between transition-all duration-500 hover:border-gold-500/40">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-10 h-10 rounded-xl overflow-hidden border border-gold-500/30 flex items-center justify-center bg-black/50 group-hover:border-gold-500 luxury-motion">
+                    <img src="IMG_4469.jpg" alt="Webora Teams" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-gold-500 to-amber-700 text-black font-black text-lg">W</div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider gold-gradient-text">WEBORA</span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] text-gray-400 font-semibold -mt-1">TEAMS • AL KHOBAR</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-gray-300">
+                <a href="#philosophy" class="hover:text-gold-400 luxury-motion hover:translate-y-[-1px]" data-i18n="nav-philosophy">Philosophy</a>
+                <a href="#performance" class="hover:text-gold-400 luxury-motion hover:translate-y-[-1px]" data-i18n="nav-performance">Performance</a>
+                <a href="#portfolio" class="hover:text-gold-400 luxury-motion hover:translate-y-[-1px]" data-i18n="nav-deployments">Deployments</a>
+                <a href="#services" class="hover:text-gold-400 luxury-motion hover:translate-y-[-1px]" data-i18n="nav-services">Services</a>
+                <a href="#pricing" class="hover:text-gold-400 luxury-motion hover:translate-y-[-1px]" data-i18n="nav-pricing">Pricing</a>
+            </nav>
+
+            <!-- Actions: Language Switcher & CTA -->
+            <div class="flex items-center gap-3">
+                <!-- Bilingual Switcher Button -->
+                <button id="lang-toggle-btn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-xs font-semibold tracking-wider flex items-center gap-2 luxury-motion hover:border-gold-500/50">
+                    <i class="fa-solid fa-globe text-gold-400"></i>
+                    <span id="lang-label">العربية</span>
+                </button>
+
+                <!-- Header Action CTA -->
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 text-black font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] luxury-motion hover:scale-[1.03]">
+                    <span data-i18n="nav-cta">Start Project</span>
+                    <i class="fa-solid fa-arrow-right text-xs rtl-flip"></i>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-300 hover:text-gold-400 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto mt-2 glass-panel rounded-2xl p-6 flex-col gap-4 text-center">
+            <a href="#philosophy" onclick="toggleMobileMenu()" class="py-2 text-gray-200 hover:text-gold-400 font-medium" data-i18n="nav-philosophy">Philosophy</a>
+            <a href="#performance" onclick="toggleMobileMenu()" class="py-2 text-gray-200 hover:text-gold-400 font-medium" data-i18n="nav-performance">Performance</a>
+            <a href="#portfolio" onclick="toggleMobileMenu()" class="py-2 text-gray-200 hover:text-gold-400 font-medium" data-i18n="nav-deployments">Deployments</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="py-2 text-gray-200 hover:text-gold-400 font-medium" data-i18n="nav-services">Services</a>
+            <a href="#pricing" onclick="toggleMobileMenu()" class="py-2 text-gray-200 hover:text-gold-400 font-medium" data-i18n="nav-pricing">Pricing</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="mt-2 py-3 bg-gradient-to-r from-gold-500 to-amber-600 text-black font-bold rounded-xl text-center" data-i18n="nav-cta">Start Project</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-32 pb-20 px-4 sm:px-8 flex items-center justify-center overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center z-10">
+            <!-- Location & Identity Tag -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border-gold-500/30 text-xs uppercase tracking-[0.2em] text-gold-400 mb-8 animate-pulse-glow">
+                <span class="w-2 h-2 rounded-full bg-gold-400 inline-block animate-ping"></span>
+                <span data-i18n="hero-badge">AL KHOBAR, SAUDI ARABIA • PURE DIGITAL ARCHITECTURE</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-8 leading-[1.1]">
+                <span data-i18n="hero-title-1">The Pinnacle of Digital</span> <br class="hidden sm:inline"/>
+                <span class="gold-gradient-text italic font-serif" data-i18n="hero-title-2">Sovereignty & Luxury</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 font-light leading-relaxed mb-10" data-i18n="hero-subtitle">
+                We craft ultra-bespoke, sub-second pure HTML digital platforms for visionary Saudi brands. Zero monthly SaaS fees, zero platform lock-in, 100% full code ownership.
+            </p>
+
+            <!-- Hero Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mb-16">
+                <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 text-black font-bold text-sm uppercase tracking-wider hover:shadow-[0_0_35px_rgba(212,175,55,0.7)] luxury-motion hover:scale-[1.04] flex items-center justify-center gap-3">
+                    <span data-i18n="hero-cta-primary">View Sovereign Pricing</span>
+                    <i class="fa-solid fa-crown text-sm"></i>
+                </a>
+                <a href="https://wa.me/966507516446" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass-panel text-white font-semibold text-sm uppercase tracking-wider hover:border-gold-500/60 hover:bg-white/10 luxury-motion flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                    <span data-i18n="hero-cta-whatsapp">Instant WhatsApp SLA</span>
+                </a>
+            </div>
+
+            <!-- Trust Metrics Bar -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto text-center">
+                <div class="glass-panel p-5 rounded-2xl border-white/10 hover:border-gold-500/40 luxury-motion">
+                    <div class="text-3xl font-bold font-serif gold-gradient-text mb-1">100%</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400" data-i18n="metric-ownership">Code Ownership</div>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl border-white/10 hover:border-gold-500/40 luxury-motion">
+                    <div class="text-3xl font-bold font-serif gold-gradient-text mb-1">&lt; 0.4s</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400" data-i18n="metric-speed">Sub-Second Speed</div>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl border-white/10 hover:border-gold-500/40 luxury-motion">
+                    <div class="text-3xl font-bold font-serif gold-gradient-text mb-1">SAR 0</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400" data-i18n="metric-saas">Recurring Platform Tax</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Continuous Marquee Bar -->
+    <div class="border-y border-white/10 bg-black/40 backdrop-blur-md py-4 overflow-hidden relative">
+        <div class="flex whitespace-nowrap animate-marquee items-center gap-12 text-xs uppercase tracking-[0.25em] text-gray-400 font-medium">
+            <span>• PURE HTML5 ARCHITECTURE</span>
+            <span class="text-gold-400">• CSS3 LIQUID GLASSMORPHISM</span>
+            <span>• VANILLA JS ES6+ LOGIC</span>
+            <span class="text-gold-400">• GOOGLE WEB VITALS 100/100</span>
+            <span>• SAUDI COMMERCE READY</span>
+            <span class="text-gold-400">• ZERO PLUGIN VULNERABILITY</span>
+            <span>• AL KHOBAR HIGH-END STANDARDS</span>
+            <span>• PURE HTML5 ARCHITECTURE</span>
+            <span class="text-gold-400">• CSS3 LIQUID GLASSMORPHISM</span>
+            <span>• VANILLA JS ES6+ LOGIC</span>
+            <span class="text-gold-400">• GOOGLE WEB VITALS 100/100</span>
+            <span>• SAUDI COMMERCE READY</span>
+        </div>
+    </div>
+
+    <!-- Core Philosophy Section -->
+    <section id="philosophy" class="py-28 px-4 sm:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold mb-3" data-i18n="philosophy-subtitle">Core Philosophy</h2>
+                <p class="font-serif text-3xl sm:text-5xl font-bold text-white" data-i18n="philosophy-title">"We Build. You Own."</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold-500 to-transparent mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="tilt-card glass-panel p-8 rounded-3xl relative group hover:border-gold-500/50">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-black luxury-motion">
+                        <i class="fa-solid fa-code-commit"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 font-serif" data-i18n="phil-card1-title">Pure Code Sovereignty</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed" data-i18n="phil-card1-desc">
+                        No WordPress bloat. No Shopify monthly fees. No Wix lock-in. We hand deliver 100% clean, raw compiled HTML/CSS/JS code directly to your servers or GitHub.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="tilt-card glass-panel p-8 rounded-3xl relative group hover:border-gold-500/50">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-black luxury-motion">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 font-serif" data-i18n="phil-card2-title">Sub-Second Speed</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed" data-i18n="phil-card2-desc">
+                        Load your website in under 0.4 seconds across Al Khobar, Riyadh, and Jeddah. Instant response rates convert ultra-high-net-worth clients effortlessly.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="tilt-card glass-panel p-8 rounded-3xl relative group hover:border-gold-500/50">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-black luxury-motion">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 font-serif" data-i18n="phil-card3-title">Unhackable Static Security</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed" data-i18n="phil-card3-desc">
+                        Without databases to breach or outdated plugins to exploit, pure HTML websites provide impenetrable fortress-level security for Saudi enterprise brands.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Performance Comparison Slider Section -->
+    <section id="performance" class="py-24 px-4 sm:px-8 relative z-10 bg-black/40">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold mb-2 block" data-i18n="perf-tag">Benchmark Testing</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4" data-i18n="perf-title">Interactive Performance Audit</h2>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto" data-i18n="perf-subtitle">Drag the slider to compare standard bloated CMS platforms against Webora Pure HTML Architecture.</p>
+            </div>
+
+            <!-- Comparison Container Card -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border-white/10 shadow-2xl relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <!-- Standard CMS Panel -->
+                    <div class="glass-panel p-6 rounded-2xl bg-red-950/20 border-red-500/20">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs uppercase font-bold text-red-400 tracking-wider" data-i18n="perf-cms-header">WordPress / Wix / Shopify</span>
+                            <span class="px-2.5 py-1 rounded-full bg-red-500/20 text-red-400 text-[10px] font-bold uppercase">Bloated</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                    <span data-i18n="perf-lbl-speed">Load Time</span>
+                                    <span class="text-red-400 font-bold">3.8 Seconds</span>
+                                </div>
+                                <div class="w-full bg-black/60 h-2.5 rounded-full overflow-hidden">
+                                    <div class="bg-red-500 h-full rounded-full" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                    <span data-i18n="perf-lbl-vitals">Google Core Web Vitals</span>
+                                    <span class="text-red-400 font-bold">42 / 100</span>
+                                </div>
+                                <div class="w-full bg-black/60 h-2.5 rounded-full overflow-hidden">
+                                    <div class="bg-red-500 h-full rounded-full" style="width: 42%;"></div>
+                                </div>
+                            </div>
+                            <ul class="text-xs text-gray-400 space-y-2 pt-2 border-t border-white/10">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-red-400"></i> <span data-i18n="perf-cms-item1">SAR 4,500+ Yearly SaaS fees</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-red-400"></i> <span data-i18n="perf-cms-item2">30+ Vulnerable Plugins</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Webora Sovereign Panel -->
+                    <div class="glass-panel-gold p-6 rounded-2xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs uppercase font-bold text-gold-400 tracking-wider" data-i18n="perf-webora-header">Webora Pure HTML</span>
+                            <span class="px-2.5 py-1 rounded-full bg-gold-500/20 text-gold-400 text-[10px] font-bold uppercase">Ultra Fast</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-300 mb-1">
+                                    <span data-i18n="perf-lbl-speed">Load Time</span>
+                                    <span class="text-emerald-400 font-bold">0.38 Seconds (&lt; 0.4s)</span>
+                                </div>
+                                <div class="w-full bg-black/60 h-2.5 rounded-full overflow-hidden">
+                                    <div class="bg-emerald-400 h-full rounded-full" style="width: 12%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-300 mb-1">
+                                    <span data-i18n="perf-lbl-vitals">Google Core Web Vitals</span>
+                                    <span class="text-gold-400 font-bold">100 / 100 Perfect</span>
+                                </div>
+                                <div class="w-full bg-black/60 h-2.5 rounded-full overflow-hidden">
+                                    <div class="bg-gradient-to-r from-gold-500 to-amber-400 h-full rounded-full" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <ul class="text-xs text-gray-300 space-y-2 pt-2 border-t border-gold-500/20">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> <span data-i18n="perf-webora-item1">SAR 0 Monthly Subscription</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> <span data-i18n="perf-webora-item2">Zero DB Vulnerability</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Deployments / Portfolio Section -->
+    <section id="portfolio" class="py-28 px-4 sm:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold mb-2 block" data-i18n="port-tag">Selected Works</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white" data-i18n="port-title">Recent Deployments</h2>
+                </div>
+                <p class="text-gray-400 text-sm max-w-md" data-i18n="port-subtitle">
+                    Precision crafted digital architecture for elite enterprises across Saudi Arabia.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Deployment Card 1 -->
+                <div class="tilt-card glass-panel rounded-3xl overflow-hidden group hover:border-gold-500/50">
+                    <div class="relative h-64 bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" alt="Al Khobar Estate" class="w-full h-full object-cover group-hover:scale-105 luxury-motion opacity-80 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full glass-panel text-[10px] font-bold uppercase tracking-wider text-gold-400">Al Khobar</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2" data-i18n="port-item1-title">Al Khobar Sovereign Estate</h3>
+                        <p class="text-xs text-gray-400 mb-4 uppercase tracking-widest" data-i18n="port-item1-cat">Luxury Real Estate Platform</p>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-6" data-i18n="port-item1-desc">
+                            Ultra-fast digital showcase for prime residential and commercial towers in Eastern Province.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-semibold text-gold-400">
+                            <span>0.32s SPEED SCORE</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-sm rtl-flip"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deployment Card 2 -->
+                <div class="tilt-card glass-panel rounded-3xl overflow-hidden group hover:border-gold-500/50">
+                    <div class="relative h-64 bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80" alt="Supply Chain" class="w-full h-full object-cover group-hover:scale-105 luxury-motion opacity-80 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full glass-panel text-[10px] font-bold uppercase tracking-wider text-gold-400">Dammam Port</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2" data-i18n="port-item2-title">Royal Falcon Logistics</h3>
+                        <p class="text-xs text-gray-400 mb-4 uppercase tracking-widest" data-i18n="port-item2-cat">B2B Maritime & Supply Portal</p>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-6" data-i18n="port-item2-desc">
+                            Pure HTML high-volume enterprise portal built for instant cargo routing and contract inquiries.
+                        </p>
+                        <div class="flex items-center justify-between text-xs font-semibold text-gold-400">
+                            <span>0.29s SPEED SCORE</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-sm rtl-flip"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-4 sm:px-8 relative z-10 bg-black/30">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold mb-2 block" data-i18n="srv-tag">Capabilities</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white" data-i18n="srv-title">Specialized Services</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="glass-panel p-6 rounded-2xl hover:border-gold-500/50 luxury-motion">
+                    <div class="text-gold-400 text-3xl mb-4"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3 class="font-serif text-lg font-bold text-white mb-2" data-i18n="srv1-title">UI/UX Graphic Design</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed" data-i18n="srv1-desc">Haute-couture digital interfaces tailored with glassmorphism depth and Arabic visual harmony.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="glass-panel p-6 rounded-2xl hover:border-gold-500/50 luxury-motion">
+                    <div class="text-gold-400 text-3xl mb-4"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="font-serif text-lg font-bold text-white mb-2" data-i18n="srv2-title">Pure HTML Architecture</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed" data-i18n="srv2-desc">Raw hand-crafted HTML5 & ES6 Javascript engineered for ultimate sub-second load performance.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="glass-panel p-6 rounded-2xl hover:border-gold-500/50 luxury-motion">
+                    <div class="text-gold-400 text-3xl mb-4"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3 class="font-serif text-lg font-bold text-white mb-2" data-i18n="srv3-title">B2B & B2C Platforms</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed" data-i18n="srv3-desc">Multi-page corporate platforms designed for lead generation, inquiries, and brand authority.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="glass-panel p-6 rounded-2xl hover:border-gold-500/50 luxury-motion">
+                    <div class="text-gold-400 text-3xl mb-4"><i class="fa-solid fa-hand-holding-hand"></i></div>
+                    <h3 class="font-serif text-lg font-bold text-white mb-2" data-i18n="srv4-title">Post-Handover Care</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed" data-i18n="srv4-desc">Priority technical support, deployment assistance, and hosting setup with zero lock-in.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers Section -->
+    <section id="pricing" class="py-28 px-4 sm:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold mb-2 block" data-i18n="price-tag">Investment</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4" data-i18n="price-title">Transparent Pricing Tiers</h2>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto" data-i18n="price-subtitle">One-time payment. 100% Code Ownership. Zero monthly platform tax.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Tier 1: Startup Core -->
+                <div class="tilt-card glass-panel rounded-3xl p-8 flex flex-col justify-between hover:border-white/30">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2" data-i18n="tier1-name">Startup Core</div>
+                        <div class="mb-6">
+                            <span class="text-xs text-gold-400 font-bold block mb-1">SAR</span>
+                            <span class="font-serif text-4xl sm:text-5xl font-bold text-white">2,499</span>
+                            <span class="text-gray-400 text-sm font-normal"> – 2,999</span>
+                        </div>
+                        <p class="text-xs text-gray-300 mb-8 leading-relaxed" data-i18n="tier1-desc">
+                            Ideal for emerging Saudi businesses requiring an ultra-fast, high-converting digital storefront.
+                        </p>
+                        <ul class="space-y-4 text-xs text-gray-200 mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t1-f1">Custom Pure HTML Architecture</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t1-f2">Mobile-First Responsive UI</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t1-f3">&lt; 0.4s Sub-Second Speed</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t1-f4">WhatsApp & Email Routing</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t1-f5">100% Code Ownership</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contact" onclick="selectTier('Startup Core (SAR 2,499 - 2,999)')" class="w-full py-3.5 rounded-xl border border-white/20 text-center font-bold text-xs uppercase tracking-wider text-white hover:bg-white/10 luxury-motion block" data-i18n="btn-select-tier">
+                        Select Startup Core
+                    </a>
+                </div>
+
+                <!-- Tier 2: Corporate Sovereign (Highlighted) -->
+                <div class="tilt-card glass-panel-gold rounded-3xl p-8 flex flex-col justify-between relative transform lg:-translate-y-4 shadow-[0_0_50px_rgba(212,175,55,0.25)]">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-gold-500 to-amber-500 text-black font-black text-[10px] uppercase tracking-widest shadow-lg" data-i18n="tier-recommended">
+                        MOST POPULAR
+                    </div>
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-2 mt-2" data-i18n="tier2-name">Corporate Sovereign</div>
+                        <div class="mb-6">
+                            <span class="text-xs text-gold-400 font-bold block mb-1">SAR</span>
+                            <span class="font-serif text-4xl sm:text-5xl font-bold text-white">3,299</span>
+                            <span class="text-gray-300 text-sm font-normal"> – 4,099</span>
+                        </div>
+                        <p class="text-xs text-gray-200 mb-8 leading-relaxed" data-i18n="tier2-desc">
+                            Full corporate digital presence for established enterprises demanding luxury aesthetics and bilingual execution.
+                        </p>
+                        <ul class="space-y-4 text-xs text-gray-100 mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-crown text-gold-400"></i> <strong data-i18n="t2-f0">Everything in Startup Core +</strong></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t2-f1">Multi-page B2B / B2C Architecture</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t2-f2">Advanced Glassmorphism & Motion Physics</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t2-f3">Arabic / English Bilingual RTL Ready</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t2-f4">Custom Form Workflows & Routing</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t2-f5">Priority Post-Handover Care</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contact" onclick="selectTier('Corporate Sovereign (SAR 3,299 - 4,099)')" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 text-black text-center font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_30px_rgba(212,175,55,0.8)] luxury-motion hover:scale-[1.02] block" data-i18n="btn-select-sovereign">
+                        Select Sovereign Tier
+                    </a>
+                </div>
+
+                <!-- Tier 3: Custom Enterprise Architecture -->
+                <div class="tilt-card glass-panel rounded-3xl p-8 flex flex-col justify-between hover:border-white/30">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2" data-i18n="tier3-name">Custom Enterprise</div>
+                        <div class="mb-6">
+                            <span class="text-xs text-gold-400 font-bold block mb-1">BESPOKE</span>
+                            <span class="font-serif text-3xl sm:text-4xl font-bold text-white" data-i18n="tier3-price">Custom Quote</span>
+                        </div>
+                        <p class="text-xs text-gray-300 mb-8 leading-relaxed" data-i18n="tier3-desc">
+                            Tailored digital ecosystems, custom web applications, and VIP service-level agreements for large-scale operations.
+                        </p>
+                        <ul class="space-y-4 text-xs text-gray-200 mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t3-f1">Full Digital Ecosystem Design</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t3-f2">Headless Backend & API Integrations</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t3-f3">Custom Analytics & Tracking</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-gold-400"></i> <span data-i18n="t3-f4">Dedicated VIP SLA & Technical Support</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contact" onclick="selectTier('Custom Enterprise Architecture')" class="w-full py-3.5 rounded-xl border border-white/20 text-center font-bold text-xs uppercase tracking-wider text-white hover:bg-white/10 luxury-motion block" data-i18n="btn-select-enterprise">
+                        Request Enterprise Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-28 px-4 sm:px-8 relative z-10 bg-black/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Direct Info Column -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold mb-2 block" data-i18n="contact-tag">Get In Touch</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4" data-i18n="contact-title">Initiate Your Digital Upgrade</h2>
+                        <p class="text-xs text-gray-300 leading-relaxed" data-i18n="contact-desc">
+                            Based in Al Khobar, serving clients across the Kingdom of Saudi Arabia. Reach out to discuss your project parameters.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <!-- Location -->
+                        <div class="glass-panel p-4 rounded-2xl flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] uppercase text-gray-400 font-semibold" data-i18n="lbl-location">Headquarters</div>
+                                <div class="text-white font-medium">Al Khobar, Eastern Province, Saudi Arabia</div>
+                            </div>
+                        </div>
+
+                        <!-- Phone & WhatsApp -->
+                        <a href="tel:+966507516446" class="glass-panel p-4 rounded-2xl flex items-center gap-4 hover:border-gold-500/50 luxury-motion block">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] uppercase text-gray-400 font-semibold" data-i18n="lbl-phone">Phone & Direct Call</div>
+                                <div class="text-white font-medium text-ltr">+966 50 751 6446</div>
+                            </div>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:webora.teams@gmail.com" class="glass-panel p-4 rounded-2xl flex items-center gap-4 hover:border-gold-500/50 luxury-motion block">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] uppercase text-gray-400 font-semibold" data-i18n="lbl-email">Primary Email</div>
+                                <div class="text-white font-medium">webora.teams@gmail.com</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Instant WhatsApp CTA -->
+                    <a href="https://wa.me/966507516446" target="_blank" class="w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-3 luxury-motion shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span data-i18n="btn-whatsapp-direct">Chat via WhatsApp Direct</span>
+                    </a>
+                </div>
+
+                <!-- Form Column submitting directly to webora.teams@gmail.com via FormSubmit -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel rounded-3xl p-8 sm:p-10 border-white/10 relative">
+                        <form action="https://formsubmit.co/webora.teams@gmail.com" method="POST" class="space-y-6">
+                            <!-- FormSubmit Configuration Inputs -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_subject" value="New Webora Teams Project Inquiry">
+                            <input type="hidden" name="_template" value="table">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <!-- Name -->
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2" data-i18n="form-name">Your Name</label>
+                                    <input type="text" name="Name" required placeholder="Sheikh / Abdullah Al-Mansoor" class="w-full px-4 py-3.5 rounded-xl glass-input text-sm">
+                                </div>
+                                <!-- Phone/WhatsApp -->
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2" data-i18n="form-phone">Phone / WhatsApp</label>
+                                    <input type="tel" name="Phone" required placeholder="+966 5X XXX XXXX" class="w-full px-4 py-3.5 rounded-xl glass-input text-sm">
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2" data-i18n="form-email">Email Address</label>
+                                <input type="email" name="Email" required placeholder="name@company.sa" class="w-full px-4 py-3.5 rounded-xl glass-input text-sm">
+                            </div>
+
+                            <!-- Selected Tier Dropdown -->
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2" data-i18n="form-tier">Selected Package</label>
+                                <select id="tier-select" name="Selected Package" class="w-full px-4 py-3.5 rounded-xl glass-input text-sm">
+                                    <option value="Startup Core (SAR 2,499 - 2,999)" data-i18n="opt-t1">Startup Core (SAR 2,499 - 2,999)</option>
+                                    <option value="Corporate Sovereign (SAR 3,299 - 4,099)" selected data-i18n="opt-t2">Corporate Sovereign (SAR 3,299 - 4,099)</option>
+                                    <option value="Custom Enterprise Architecture" data-i18n="opt-t3">Custom Enterprise Architecture</option>
+                                </select>
+                            </div>
+
+                            <!-- Project Details -->
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2" data-i18n="form-details">Project Parameters / Requirements</label>
+                                <textarea name="Message" rows="4" required placeholder="Describe your business goals and key features..." class="w-full px-4 py-3.5 rounded-xl glass-input text-sm"></textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 text-black font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_30px_rgba(212,175,55,0.7)] luxury-motion hover:scale-[1.01]">
+                                <span data-i18n="btn-submit-form">Submit Inquiry to Webora</span>
+                                <i class="fa-solid fa-paper-plane text-xs ml-2 rtl-flip"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 sm:px-8 border-t border-white/10 relative z-10 bg-black">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg overflow-hidden border border-gold-500/30 flex items-center justify-center bg-black">
+                    <img src="IMG_4469.jpg" alt="Webora Teams" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden absolute inset-0 items-center justify-center bg-gold-500 text-black font-black text-xs">W</div>
+                </div>
+                <span class="font-serif text-lg font-bold gold-gradient-text">WEBORA TEAMS</span>
+            </div>
+
+            <p class="text-xs text-gray-400" data-i18n="footer-rights">
+                &copy; 2026 Webora Teams. Al Khobar, Kingdom of Saudi Arabia. All Rights Reserved.
+            </p>
+
+            <div class="flex items-center gap-4 text-xs text-gray-400">
+                <a href="tel:+966507516446" class="hover:text-gold-400 luxury-motion">+966 50 751 6446</a>
+                <span>•</span>
+                <a href="mailto:webora.teams@gmail.com" class="hover:text-gold-400 luxury-motion">webora.teams@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/966507516446" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full glass-panel-gold flex items-center justify-center text-emerald-400 text-2xl hover:scale-110 luxury-motion shadow-[0_0_25px_rgba(16,185,129,0.5)] border border-emerald-400/50" title="Contact via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const translations = {
+            en: {
+                "nav-philosophy": "Philosophy",
+                "nav-performance": "Performance",
+                "nav-deployments": "Deployments",
+                "nav-services": "Services",
+                "nav-pricing": "Pricing",
+                "nav-cta": "Start Project",
+                "hero-badge": "AL KHOBAR, SAUDI ARABIA • PURE DIGITAL ARCHITECTURE",
+                "hero-title-1": "The Pinnacle of Digital",
+                "hero-title-2": "Sovereignty & Luxury",
+                "hero-subtitle": "We craft ultra-bespoke, sub-second pure HTML digital platforms for visionary Saudi brands. Zero monthly SaaS fees, zero platform lock-in, 100% full code ownership.",
+                "hero-cta-primary": "View Sovereign Pricing",
+                "hero-cta-whatsapp": "Instant WhatsApp SLA",
+                "metric-ownership": "Code Ownership",
+                "metric-speed": "Sub-Second Speed",
+                "metric-saas": "Recurring Platform Tax",
+                "philosophy-subtitle": "Core Philosophy",
+                "philosophy-title": "\"We Build. You Own.\"",
+                "phil-card1-title": "Pure Code Sovereignty",
+                "phil-card1-desc": "No WordPress bloat. No Shopify monthly fees. No Wix lock-in. We hand deliver 100% clean, raw compiled HTML/CSS/JS code directly to your servers or GitHub.",
+                "phil-card2-title": "Sub-Second Speed",
+                "phil-card2-desc": "Load your website in under 0.4 seconds across Al Khobar, Riyadh, and Jeddah. Instant response rates convert ultra-high-net-worth clients effortlessly.",
+                "phil-card3-title": "Unhackable Static Security",
+                "phil-card3-desc": "Without databases to breach or outdated plugins to exploit, pure HTML websites provide impenetrable fortress-level security for Saudi enterprise brands.",
+                "perf-tag": "Benchmark Testing",
+                "perf-title": "Interactive Performance Audit",
+                "perf-subtitle": "Drag the slider to compare standard bloated CMS platforms against Webora Pure HTML Architecture.",
+                "perf-cms-header": "WordPress / Wix / Shopify",
+                "perf-lbl-speed": "Load Time",
+                "perf-lbl-vitals": "Google Core Web Vitals",
+                "perf-cms-item1": "SAR 4,500+ Yearly SaaS fees",
+                "perf-cms-item2": "30+ Vulnerable Plugins",
+                "perf-webora-header": "Webora Pure HTML",
+                "perf-webora-item1": "SAR 0 Monthly Subscription",
+                "perf-webora-item2": "Zero DB Vulnerability",
+                "port-tag": "Selected Works",
+                "port-title": "Recent Deployments",
+                "port-subtitle": "Precision crafted digital architecture for elite enterprises across Saudi Arabia.",
+                "port-item1-title": "Al Khobar Sovereign Estate",
+                "port-item1-cat": "Luxury Real Estate Platform",
+                "port-item1-desc": "Ultra-fast digital showcase for prime residential and commercial towers in Eastern Province.",
+                "port-item2-title": "Royal Falcon Logistics",
+                "port-item2-cat": "B2B Maritime & Supply Portal",
+                "port-item2-desc": "Pure HTML high-volume enterprise portal built for instant cargo routing and contract inquiries.",
+                "srv-tag": "Capabilities",
+                "srv-title": "Specialized Services",
+                "srv1-title": "UI/UX Graphic Design",
+                "srv1-desc": "Haute-couture digital interfaces tailored with glassmorphism depth and Arabic visual harmony.",
+                "srv2-title": "Pure HTML Architecture",
+                "srv2-desc": "Raw hand-crafted HTML5 & ES6 Javascript engineered for ultimate sub-second load performance.",
+                "srv3-title": "B2B & B2C Platforms",
+                "srv3-desc": "Multi-page corporate platforms designed for lead generation, inquiries, and brand authority.",
+                "srv4-title": "Post-Handover Care",
+                "srv4-desc": "Priority technical support, deployment assistance, and hosting setup with zero lock-in.",
+                "price-tag": "Investment",
+                "price-title": "Transparent Pricing Tiers",
+                "price-subtitle": "One-time payment. 100% Code Ownership. Zero monthly platform tax.",
+                "tier1-name": "Startup Core",
+                "tier1-desc": "Ideal for emerging Saudi businesses requiring an ultra-fast, high-converting digital storefront.",
+                "t1-f1": "Custom Pure HTML Architecture",
+                "t1-f2": "Mobile-First Responsive UI",
+                "t1-f3": "< 0.4s Sub-Second Speed",
+                "t1-f4": "WhatsApp & Email Routing",
+                "t1-f5": "100% Code Ownership",
+                "btn-select-tier": "Select Startup Core",
+                "tier-recommended": "MOST POPULAR",
+                "tier2-name": "Corporate Sovereign",
+                "tier2-desc": "Full corporate digital presence for established enterprises demanding luxury aesthetics and bilingual execution.",
+                "t2-f0": "Everything in Startup Core +",
+                "t2-f1": "Multi-page B2B / B2C Architecture",
+                "t2-f2": "Advanced Glassmorphism & Motion Physics",
+                "t2-f3": "Arabic / English Bilingual RTL Ready",
+                "t2-f4": "Custom Form Workflows & Routing",
+                "t2-f5": "Priority Post-Handover Care",
+                "btn-select-sovereign": "Select Sovereign Tier",
+                "tier3-name": "Custom Enterprise",
+                "tier3-price": "Custom Quote",
+                "tier3-desc": "Tailored digital ecosystems, custom web applications, and VIP service-level agreements for large-scale operations.",
+                "t3-f1": "Full Digital Ecosystem Design",
+                "t3-f2": "Headless Backend & API Integrations",
+                "t3-f3": "Custom Analytics & Tracking",
+                "t3-f4": "Dedicated VIP SLA & Technical Support",
+                "btn-select-enterprise": "Request Enterprise Quote",
+                "contact-tag": "Get In Touch",
+                "contact-title": "Initiate Your Digital Upgrade",
+                "contact-desc": "Based in Al Khobar, serving clients across the Kingdom of Saudi Arabia. Reach out to discuss your project parameters.",
+                "lbl-location": "Headquarters",
+                "lbl-phone": "Phone & Direct Call",
+                "lbl-email": "Primary Email",
+                "btn-whatsapp-direct": "Chat via WhatsApp Direct",
+                "form-name": "Your Name",
+                "form-phone": "Phone / WhatsApp",
+                "form-email": "Email Address",
+                "form-tier": "Selected Package",
+                "opt-t1": "Startup Core (SAR 2,499 - 2,999)",
+                "opt-t2": "Corporate Sovereign (SAR 3,299 - 4,099)",
+                "opt-t3": "Custom Enterprise Architecture",
+                "form-details": "Project Parameters / Requirements",
+                "btn-submit-form": "Submit Inquiry to Webora",
+                "footer-rights": "© 2026 Webora Teams. Al Khobar, Kingdom of Saudi Arabia. All Rights Reserved."
+            },
+            ar: {
+                "nav-philosophy": "فلسفتنا",
+                "nav-performance": "الأداء",
+                "nav-deployments": "أعمالنا",
+                "nav-services": "خدماتنا",
+                "nav-pricing": "الأسعار",
+                "nav-cta": "ابدأ مشروعك",
+                "hero-badge": "الخبر، المملكة العربية السعودية • هندسة رقمية فاخرة",
+                "hero-title-1": "قمة السيادة الرقمية",
+                "hero-title-2": "والفخامة الإلكترونية",
+                "hero-subtitle": "نبني منصات رقمية فائقة السرعة ببرمجة صافية خصيصاً للعلامات التجارية الرائدة في المملكة. بدون رسوم منصات شهرياً، بدون قيود، وملكية كاملة للكود 100%.",
+                "hero-cta-primary": "عرض باقات السيادة",
+                "hero-cta-whatsapp": "تواصل عبر الواتساب",
+                "metric-ownership": "ملكية الكود 100%",
+                "metric-speed": "سرعة فائقة <0.4 ثانية",
+                "metric-saas": "رسوم اشتراك شهري 0 ريال",
+                "philosophy-subtitle": "فلسفتنا الجوهرية",
+                "philosophy-title": "«نحن نبني.. وأنت تمتلك»",
+                "phil-card1-title": "سيادة البرمجة الكاملة",
+                "phil-card1-desc": "بدون بطء ووردبريس، وبدون رسوم شوبيفاي الشهرية، وبدون قيود ويكس. نسلمك الكود المصدري النقي 100% مباشرة إلى خوادمك.",
+                "phil-card2-title": "سرعة خيالية تحت الثانية",
+                "phil-card2-desc": "تحميل في أقل من 0.4 ثانية في الخبر، الرياض، وجدة. سرعة الاستجابة الفورية تضمن أعلى معدلات التحويل لكبار العملاء.",
+                "phil-card3-title": "حماية سحابية غير قابلة للاختراق",
+                "phil-card3-desc": "بدون قواعد بيانات معقدة تعرضك للاختراق أو إضافات بطيئة، البرمجة الصافية توفر أماناً حديادياً مصفحاً للشركات السعودية.",
+                "perf-tag": "اختبارات المقارنة",
+                "perf-title": "تدقيق الأداء التفاعلي",
+                "perf-subtitle": "قارن بين المنصات التقليدية البطيئة وبين هندسة ويبورا البرمجية الصافية.",
+                "perf-cms-header": "ووردبريس / ويكس / شوبيفاي",
+                "perf-lbl-speed": "زمن التحميل",
+                "perf-lbl-vitals": "مؤشرات أداء جوجل",
+                "perf-cms-item1": "4,500+ ريال رسوم سنوية متكررة",
+                "perf-cms-item2": "أكثر من 30 إضافة معرضة للثغرات",
+                "perf-webora-header": "ويبورا - برمجة صافية",
+                "perf-webora-item1": "0 ريال رسوم منصات شهرياً",
+                "perf-webora-item2": "صفر ثغرات في قواعد البيانات",
+                "port-tag": "أعمال مختارة",
+                "port-title": "أحدث المشاريع المنجزة",
+                "port-subtitle": "هندسة رقمية دقيقة تم تنفيذها لكبرى الشركات والمنشآت في المملكة العربية السعودية.",
+                "port-item1-title": "مجموعة عقارات الخبر السيادية",
+                "port-item1-cat": "منصة عقارية فاخرة",
+                "port-item1-desc": "عرض رقمي فائق السرعة لأبراج سكنية وتجارية فاخرة بالمنطقة الشرقية.",
+                "port-item2-title": "صقر الملكية اللوجستية",
+                "port-item2-cat": "بوابة الشحن وسلاسل الإمداد",
+                "port-item2-desc": "منصة أعمال كبرى مبنية ببرمجة صافية لتتبع الشحنات والاستفسارات الفورية.",
+                "srv-tag": "قدراتنا",
+                "srv-title": "خدماتنا المتخصصة",
+                "srv1-title": "تصميم واجهات المستخدم (UI/UX)",
+                "srv1-desc": "واجهات رقمية فاخرة مستوحاة من أحدث اتجاهات الزجاج الكريستالي والهوية السعودية.",
+                "srv2-title": "تطوير البرمجة الصافية (Pure HTML)",
+                "srv2-desc": "أكواد برمجية خفيفة عالية الكفاءة بأحدث معايير HTML5 و JavaScript لإنجاز سرعة استثنائية.",
+                "srv3-title": "بنية منصات الأعمال B2B & B2C",
+                "srv3-desc": "منصات متعددة الصفحات مخصصة لجذب العملاء وعرض الخدمات بطريقة استثنائية.",
+                "srv4-title": "العناية والدعم بعد التسليم",
+                "srv4-desc": "دعم فني استثنائي، وإرشادات رفع المواقع وتكوين الخوادم بملكية كاملة لك.",
+                "price-tag": "الاستثمار",
+                "price-title": "باقات الأسعار الشفافة",
+                "price-subtitle": "دفعة واحدة فقط. ملكية الكود 100%. بدون اشتراكات أو رسوم شهرياً.",
+                "tier1-name": "الأساسية (Startup Core)",
+                "tier1-desc": "مثالية للشركات والمشاريع الناشئة التي تتطلب واجهة رقمية فائقة السرعة وجذابة للعملاء.",
+                "t1-f1": "هندسة برمجية صافية مخصصة",
+                "t1-f2": "واجهة متوافقة تماماً مع الجوال",
+                "t1-f3": "سرعة فائقة أقل من 0.4 ثانية",
+                "t1-f4": "ربط مع البريد والواتساب",
+                "t1-f5": "ملكية الكود بنسبة 100%",
+                "btn-select-tier": "اختيار باقة Startup Core",
+                "tier-recommended": "الأكثر طلباً",
+                "tier2-name": "السيادية (Corporate Sovereign)",
+                "tier2-desc": "حضور رقمي متكامل للشركات والمؤسسات التي تتطلب طابعاً فاخراً ودعماً باللغتين.",
+                "t2-f0": "جميع مميزات باقة Startup Core +",
+                "t2-f1": "منصة متعددة الصفحات B2B / B2C",
+                "t2-f2": "تأثيرات زجاجية وحركية متقدمة",
+                "t2-f3": "ثنائية اللغة بالكامل (عربي / إنجليزي RTL)",
+                "t2-f4": "نماذج وتدفقات بيانات مخصصة",
+                "t2-f5": "عناية ودعم فني ذو أولوية بعد التسليم",
+                "btn-select-sovereign": "اختيار باقة Corporate Sovereign",
+                "tier3-name": "المؤسسات الكبرى (Custom Enterprise)",
+                "tier3-price": "تسعير مخصص",
+                "tier3-desc": "منظومات رقمية متكاملة، تطبيقات ويب مخصصة، واتفاقيات مستوى خدمة VIP للمؤسسات الكبرى.",
+                "t3-f1": "تطوير منظومة رقمية مخصصة بالكامل",
+                "t3-f2": "ربط واجهات برمجة التطبيقات APIs",
+                "t3-f3": "تكامل التحليلات وتتبع الأداء",
+                "t3-f4": "اتفاقية مستوى خدمة VIP ودعم فني مخصص",
+                "btn-select-enterprise": "طلب عرض سعر خاص",
+                "contact-tag": "تواصل معنا",
+                "contact-title": "ابدأ التطوير الرقمي لمشروعك",
+                "contact-desc": "مقرنا في الخبر، ونخدم عملائنا في كافة أنحاء المملكة العربية السعودية. تواصل معنا لمناقشة تفاصيل مشروعك.",
+                "lbl-location": "المقر الرئيسي",
+                "lbl-phone": "الهاتف والاتصال المباشر",
+                "lbl-email": "البريد الإلكتروني",
+                "btn-whatsapp-direct": "محادثة مباشرة عبر الواتساب",
+                "form-name": "الاسم الكريم",
+                "form-phone": "رقم الجوال / الواتساب",
+                "form-email": "البريد الإلكتروني",
+                "form-tier": "الباقة المختارة",
+                "opt-t1": "Startup Core (2,499 - 2,999 ريال)",
+                "opt-t2": "Corporate Sovereign (3,299 - 4,099 ريال)",
+                "opt-t3": "Custom Enterprise (تسعير خاص)",
+                "form-details": "تفاصيل ومتطلبات المشروع",
+                "btn-submit-form": "إرسال الطلب إلى فريق ويبورا",
+                "footer-rights": "© 2026 فريق ويبورا (Webora Teams). الخبر، المملكة العربية السعودية. جميع الحقوق محفوظة."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            // Update button text
+            document.getElementById('lang-label').textContent = currentLang === 'en' ? 'العربية' : 'English';
+
+            // Update all DOM elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        function selectTier(tierName) {
+            const selectEl = document.getElementById('tier-select');
+            if (selectEl) {
+                for (let i = 0; i < selectEl.options.length; i++) {
+                    if (selectEl.options[i].value.includes(tierName.split(' ')[0])) {
+                        selectEl.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
+            }
+        }
+
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorRing = document.getElementById('cursor-ring');
+
+        if (cursorDot && cursorRing && window.innerWidth >= 768) {
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
+
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+
+                cursorRing.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 250, fill: "forwards" });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const tiltCards = document.querySelectorAll('.tilt-card');
+
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -8;
+                    const rotateY = ((x - centerX) / centerX) * 8;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
