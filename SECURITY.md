@@ -18,7 +18,7 @@ At **Webora Teams**, we take the security of our web applications and assets ser
 ### How to Report
 
 * **Do NOT open a public GitHub issue** to report a security vulnerability.
-* Send an email detailing your findings to **weborateams@gmail.com** (or contact your project administrator directly).
+* Send an email detailing your findings to **webora.teams@gmail.com** (or contact your project administrator directly).
 * Include the following details to help us investigate:
   * A clear description of the vulnerability and its potential impact.
   * Step-by-step reproduction instructions or a minimal proof-of-concept.
