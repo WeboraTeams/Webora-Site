@@ -39,4 +39,4 @@ These services operate under their own respective privacy policies.
 ## 5. Contact Us
 If you have any questions or concerns regarding this Privacy Policy or data practices, please contact us:
 * **Agency Website:** [https://weborateams.com](https://weborateams.com)
-* **Email:** `contact@weborateams.com`
+* **Email:** `webora.teams@gmail.com`
