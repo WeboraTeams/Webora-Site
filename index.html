@@ -336,7 +336,7 @@
         </div>
     </section>
 
-    <!-- Contact Form -->
+   <!-- Contact Form -->
     <section id="contact" class="relative z-10 py-24 px-6 max-w-4xl mx-auto border-t border-white/10">
         <div class="glass-heavy p-10 md:p-14 rounded-[2.5rem]">
             <div class="text-center mb-10">
@@ -344,31 +344,30 @@
                 <p class="text-gray-400 text-sm">Based in Al Khobar. Serving elite clients across KSA.</p>
             </div>
             
-            <<form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="1a9d07e2-8f55-4eed-a6ee-7ffd8d501057">
-  <input type="text" name="name" required>
-  <input type="email" name="email" required>
-  <textarea name="message" required></textarea>
-  <button type="submit">Submit</button>
-</form>
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="1a9d07e2-8f55-4eed-a6ee-7ffd8d501057">
+                <input type="hidden" name="subject" value="New Website Inquiry - Webora Teams">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Your Name</label>
-                        <input type="text" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="e.g. Ahmed Al-Dosari">
+                        <input type="text" name="name" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="e.g. Ahmed Al-Dosari">
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Phone / WhatsApp</label>
-                        <input type="tel" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="+966 5X XXX XXXX">
+                        <input type="tel" name="phone" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="+966 5X XXX XXXX">
                     </div>
                 </div>
                 
                 <div>
                     <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Email Address</label>
-                    <input type="email" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="name@company.com">
+                    <input type="email" name="email" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="name@company.com">
                 </div>
 
                 <div>
                     <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Selected Package</label>
-                    <select class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-gray-300 focus:outline-none focus:border-white/40 transition-colors appearance-none">
+                    <select name="package" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-gray-300 focus:outline-none focus:border-white/40 transition-colors appearance-none">
                         <option>Startup Core (SAR 1,500 - 2,700)</option>
                         <option selected>Corporate Sovereign (SAR 2,800 - 4,300)</option>
                         <option>Custom Enterprise Architecture</option>
@@ -377,16 +376,15 @@
 
                 <div>
                     <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Project Parameters / Requirements</label>
-                    <textarea rows="4" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors resize-none" placeholder="Briefly describe your business and digital goals..."></textarea>
+                    <textarea name="message" rows="4" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors resize-none" placeholder="Briefly describe your business and digital goals..."></textarea>
                 </div>
                 
-                <button type="submit" class="w-full py-4 rounded-xl bg-white text-black font-bold tracking-widest uppercase text-sm hover:bg-gray-200 transition-colors mt-4">
+                <button type="submit" class="w-full py-4 rounded-xl bg-white text-black font-bold tracking-widest uppercase text-sm hover:bg-gray-200 transition-colors mt-4 cursor-pointer">
                     Submit Inquiry to Webora
                 </button>
             </form>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="relative z-10 py-10 px-6 border-t border-white/10 mt-10">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
