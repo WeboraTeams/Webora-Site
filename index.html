@@ -1,38 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Webora Teams in Al Khobar crafts custom, high-speed static HTML websites for Saudi brands with 100% source code ownership and zero CMS bloat.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none';">
     <title>Webora Teams | Pure Digital Architecture</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- SIL Open Font License (OFL) Commercial-Free Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lenis Smooth Scrolling Engine -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 
     <style>
+        html {
+            max-width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', sans-serif;
             background-color: #030303;
             color: #ffffff;
             margin: 0;
+            max-width: 100%;
             overflow-x: hidden;
         }
 
         h1, h2, h3, .heading-font {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Space Grotesk', 'IBM Plex Sans Arabic', sans-serif;
             letter-spacing: -0.02em;
         }
+
+        html[dir="rtl"] body,
+        html[dir="rtl"] h1,
+        html[dir="rtl"] h2,
+        html[dir="rtl"] h3,
+        html[dir="rtl"] .heading-font {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            letter-spacing: 0;
+        }
         
-        /* Cinematic Architectural Background */
+        /* Cinematic Architectural Background (Unsplash Commercial License) */
         .fixed-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            /* Ultra-premium dark architectural glass building shot */
+            inset: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2560&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -41,10 +62,9 @@
         
         .bg-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 100%);
             z-index: -2;
         }
@@ -52,10 +72,9 @@
         /* Premium Film Grain Overlay */
         .noise-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 9999;
             opacity: 0.035;
@@ -64,7 +83,7 @@
 
         /* Pure Heavy Glassmorphism */
         .glass-heavy {
-            background: rgba(20, 20, 20, 0.4);
+            background: rgba(20, 20, 20, 0.45);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -85,12 +104,17 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        /* Infinite Marquee */
+        .logical-accent-border {
+            border-inline-start: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Infinite Marquee (LTR & RTL Safe, Zero Horizontal Overflow) */
         .marquee-wrapper {
             overflow: hidden;
             white-space: nowrap;
             display: flex;
-            width: 100vw;
+            width: 100%;
+            max-width: 100%;
             border-top: 1px solid rgba(255,255,255,0.05);
             border-bottom: 1px solid rgba(255,255,255,0.05);
             background: rgba(0,0,0,0.5);
@@ -99,171 +123,227 @@
         
         .marquee-content {
             display: flex;
-            animation: marquee 35s linear infinite;
+            width: max-content;
+            animation: marquee-ltr 35s linear infinite;
+        }
+
+        html[dir="rtl"] .marquee-content {
+            animation: marquee-rtl 35s linear infinite;
         }
         
-        @keyframes marquee {
+        @keyframes marquee-ltr {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+
+        @keyframes marquee-rtl {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
         }
 
         ::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="antialiased text-gray-200">
+<body class="antialiased text-gray-200 selection:bg-white selection:text-black">
 
-    <div class="fixed-bg"></div>
-    <div class="bg-overlay"></div>
-    <div class="noise-overlay"></div>
+    <div class="fixed-bg" aria-hidden="true"></div>
+    <div class="bg-overlay" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
 
     <!-- Floating Pill Navigation -->
-<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-    <div class="glass-heavy rounded-2xl px-6 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-            <img src="IMG_4469.jpg" alt="Webora Teams Logo" class="w-8 h-8 rounded-lg object-cover">
-            <span class="heading-font font-bold text-xl tracking-tight text-white">WEBORA TEAMS<span class="text-gray-500 text-sm ml-2 font-normal">AL KHOBAR</span></span>
+    <nav class="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl">
+        <div class="glass-heavy rounded-2xl px-4 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between gap-2">
+            <a href="#" class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <img src="IMG_4469.jpg" alt="Webora Teams Logo" width="32" height="32" class="w-8 h-8 rounded-lg object-cover shrink-0">
+                <span class="heading-font font-bold text-base sm:text-xl tracking-tight text-white truncate">
+                    WEBORA TEAMS
+                    <span data-i18n="navLocation" class="hidden sm:inline text-gray-500 text-xs ms-1.5 font-normal">AL KHOBAR</span>
+                </span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest text-gray-400 uppercase">
+                <a href="#philosophy" data-i18n="navPhilosophy" class="hover:text-white transition-colors">Philosophy</a>
+                <a href="#performance" data-i18n="navPerformance" class="hover:text-white transition-colors">Comparison</a>
+                <a href="#pricing" data-i18n="navPricing" class="hover:text-white transition-colors">Pricing</a>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <button type="button" id="langToggle" aria-label="Switch Language" class="text-xs font-semibold px-3 py-2 rounded-lg border border-white/15 bg-white/5 text-gray-200 hover:bg-white/15 hover:text-white transition-colors cursor-pointer min-h-[38px]">
+                    عربي
+                </button>
+                <a href="#contact" data-i18n="navCta" class="text-xs heading-font tracking-wider sm:tracking-widest font-bold bg-white text-black px-3.5 sm:px-6 py-2.5 rounded-lg hover:bg-gray-200 transition-colors uppercase min-h-[38px] inline-flex items-center">
+                    Start Project
+                </a>
+                <button type="button" id="mobileMenuBtn" aria-label="Toggle Menu" aria-expanded="false" class="md:hidden p-2 rounded-lg border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <div class="hidden md:flex gap-8 text-xs font-semibold tracking-widest text-gray-400 uppercase">
-            <a href="#philosophy" class="hover:text-white transition-colors">Philosophy</a>
-            <a href="#performance" class="hover:text-white transition-colors">Performance</a>
-            <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden glass-heavy rounded-2xl mt-2 p-4 border border-white/10">
+            <div class="flex flex-col gap-3 text-xs font-semibold tracking-widest text-gray-300 uppercase">
+                <a href="#philosophy" data-i18n="navPhilosophy" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-white/10 transition-colors">Philosophy</a>
+                <a href="#performance" data-i18n="navPerformance" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-white/10 transition-colors">Comparison</a>
+                <a href="#pricing" data-i18n="navPricing" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-white/10 transition-colors">Pricing</a>
+            </div>
         </div>
-        <a href="#contact" class="text-xs heading-font tracking-widest font-bold bg-white text-black px-6 py-2.5 rounded-lg hover:bg-gray-200 transition-colors uppercase">Start Project</a>
-    </div>
-</nav>
+    </nav>
 
     <!-- Hero Section -->
-    <main class="relative z-10 pt-48 pb-20 px-6 max-w-6xl mx-auto flex flex-col justify-center min-h-[90vh]">
+    <main class="relative z-10 pt-36 sm:pt-44 md:pt-48 pb-16 sm:pb-20 px-5 sm:px-6 max-w-6xl mx-auto flex flex-col justify-center min-h-[90svh]">
         <div class="max-w-4xl">
-            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-8">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-6 sm:mb-8">
                 <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-                <span class="text-xs font-semibold text-gray-300 tracking-widest uppercase">Pure Digital Architecture</span>
+                <span data-i18n="heroBadge" class="text-xs font-semibold text-gray-300 tracking-widest uppercase">Pure Digital Architecture</span>
             </div>
             
-            <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight text-white mb-8">
-                The Pinnacle of <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">Digital Sovereignty</span> <br>
-                & Luxury.
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.05] md:leading-[0.95] tracking-tight text-white mb-6 sm:mb-8">
+                <span data-i18n="heroTitle1">The Pinnacle of</span> <br>
+                <span data-i18n="heroTitle2" class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Digital Sovereignty</span> <br>
+                <span data-i18n="heroTitle3">&amp; Luxury.</span>
             </h1>
             
-            <p class="text-lg text-gray-400 max-w-2xl leading-relaxed mb-12 font-light">
-                We craft ultra-bespoke, sub-second pure HTML digital platforms for visionary Saudi brands. Zero platform lock-in, 100% full code ownership, and flawless performance.
+            <p data-i18n="heroSubtitle" class="text-base sm:text-lg text-gray-400 max-w-2xl leading-relaxed mb-10 sm:mb-12 font-light">
+                We craft custom, high-speed pure HTML digital platforms for visionary Saudi brands. Zero platform lock-in, 100% full code ownership, and clean architecture.
             </p>
 
             <!-- Hero Glass Stats -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div class="glass-heavy p-6 rounded-2xl">
                     <p class="heading-font text-2xl font-bold text-white mb-1">100%</p>
-                    <p class="text-xs tracking-widest text-gray-400 uppercase">Code Ownership</p>
+                    <p data-i18n="stat1Label" class="text-xs tracking-widest text-gray-400 uppercase">Code Ownership</p>
                 </div>
-                <div class="glass-heavy p-6 rounded-2xl border-l-2 border-l-white/50">
-                    <p class="heading-font text-2xl font-bold text-white mb-1">< 0.4s</p>
-                    <p class="text-xs tracking-widest text-gray-400 uppercase">Sub-Second Speed</p>
+                <div class="glass-heavy p-6 rounded-2xl logical-accent-border">
+                    <p data-i18n="stat2Value" class="heading-font text-2xl font-bold text-white mb-1">Zero</p>
+                    <p data-i18n="stat2Label" class="text-xs tracking-widest text-gray-400 uppercase">CMS Plugin Bloat</p>
                 </div>
                 <div class="glass-heavy p-6 rounded-2xl">
-                    <p class="heading-font text-2xl font-bold text-white mb-1">SAR 50/mo</p>
-                    <p class="text-xs tracking-widest text-gray-400 uppercase">Live Hosting & Maint.</p>
+                    <p data-i18n="stat3Value" class="heading-font text-2xl font-bold text-white mb-1">SAR 50/mo</p>
+                    <p data-i18n="stat3Label" class="text-xs tracking-widest text-gray-400 uppercase">Optional Hosting &amp; Maint.</p>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- Infinite Tech Marquee -->
-    <div class="marquee-wrapper relative z-10 my-10">
-        <div class="marquee-content text-sm heading-font tracking-[0.2em] font-bold text-gray-400 uppercase">
-            <!-- Repeated twice for seamless loop -->
-            <div class="flex gap-12 px-6">
-                <span>• PURE HTML5 ARCHITECTURE</span>
-                <span>• CSS3 LIQUID GLASSMORPHISM</span>
-                <span>• VANILLA JS ES6+ LOGIC</span>
-                <span>• GOOGLE WEB VITALS 100/100</span>
-                <span>• SAUDI COMMERCE READY</span>
-                <span>• ZERO PLUGIN VULNERABILITY</span>
-                <span>• AL KHOBAR HIGH-END STANDARDS</span>
+    <div class="marquee-wrapper relative z-10 my-8 sm:my-10" aria-hidden="true">
+        <div class="marquee-content text-xs sm:text-sm heading-font tracking-[0.18em] font-bold text-gray-400 uppercase">
+            <div class="flex gap-10 sm:gap-12 px-6">
+                <span data-i18n="marquee1">• PURE HTML5 ARCHITECTURE</span>
+                <span data-i18n="marquee2">• CSS3 LIQUID GLASSMORPHISM</span>
+                <span data-i18n="marquee3">• VANILLA JS ES6+ LOGIC</span>
+                <span data-i18n="marquee4">• LIGHTWEIGHT STATIC DELIVERY</span>
+                <span data-i18n="marquee5">• SAUDI COMMERCE READY</span>
+                <span data-i18n="marquee6">• ZERO PLUGIN VULNERABILITIES</span>
+                <span data-i18n="marquee7">• AL KHOBAR ENGINEERING STANDARDS</span>
             </div>
-            <div class="flex gap-12 px-6">
-                <span>• PURE HTML5 ARCHITECTURE</span>
-                <span>• CSS3 LIQUID GLASSMORPHISM</span>
-                <span>• VANILLA JS ES6+ LOGIC</span>
-                <span>• GOOGLE WEB VITALS 100/100</span>
-                <span>• SAUDI COMMERCE READY</span>
-                <span>• ZERO PLUGIN VULNERABILITY</span>
-                <span>• AL KHOBAR HIGH-END STANDARDS</span>
+            <div class="flex gap-10 sm:gap-12 px-6">
+                <span data-i18n="marquee1">• PURE HTML5 ARCHITECTURE</span>
+                <span data-i18n="marquee2">• CSS3 LIQUID GLASSMORPHISM</span>
+                <span data-i18n="marquee3">• VANILLA JS ES6+ LOGIC</span>
+                <span data-i18n="marquee4">• LIGHTWEIGHT STATIC DELIVERY</span>
+                <span data-i18n="marquee5">• SAUDI COMMERCE READY</span>
+                <span data-i18n="marquee6">• ZERO PLUGIN VULNERABILITIES</span>
+                <span data-i18n="marquee7">• AL KHOBAR ENGINEERING STANDARDS</span>
             </div>
         </div>
     </div>
 
     <!-- Philosophy & Features -->
-    <section id="philosophy" class="relative z-10 py-24 px-6 max-w-6xl mx-auto">
-        <div class="mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">"We Build. You Own."</h2>
-            <p class="text-gray-400 max-w-xl">Core Philosophy & Pure Code Sovereignty</p>
+    <section id="philosophy" class="relative z-10 py-20 sm:py-24 px-5 sm:px-6 max-w-6xl mx-auto">
+        <div class="mb-12 sm:mb-16">
+            <h2 data-i18n="philHeading" class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">"We Build. You Own."</h2>
+            <p data-i18n="philSubheading" class="text-gray-400 max-w-xl">Core Philosophy &amp; Pure Code Sovereignty</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="glass-heavy p-10 rounded-3xl">
+            <div class="glass-heavy p-8 sm:p-10 rounded-3xl">
                 <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                 </div>
-                <h3 class="text-2xl heading-font font-bold text-white mb-4">Pure Code Sovereignty</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">No WordPress bloat. No Shopify platform taxes. No Wix lock-in. We hand deliver 100% clean, raw compiled HTML/CSS/JS code directly to you.</p>
+                <h3 data-i18n="philCard1Title" class="text-2xl heading-font font-bold text-white mb-4">Pure Code Sovereignty</h3>
+                <p data-i18n="philCard1Desc" class="text-gray-400 text-sm leading-relaxed">No WordPress bloat. No Shopify platform taxes. No Wix lock-in. We hand deliver 100% clean, raw HTML/CSS/JS code directly to you.</p>
             </div>
 
-            <div class="glass-heavy p-10 rounded-3xl">
+            <div class="glass-heavy p-8 sm:p-10 rounded-3xl">
                 <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
-                <h3 class="text-2xl heading-font font-bold text-white mb-4">Sub-Second Speed</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Load your website in under 0.4 seconds across Al Khobar, Riyadh, and Jeddah. Instant response rates convert ultra-high-net-worth clients effortlessly.</p>
+                <h3 data-i18n="philCard2Title" class="text-2xl heading-font font-bold text-white mb-4">High-Speed Performance</h3>
+                <p data-i18n="philCard2Desc" class="text-gray-400 text-sm leading-relaxed">Engineered for rapid asset delivery across Al Khobar, Riyadh, and Jeddah, giving your visitors an immediate, responsive experience on mobile and desktop.</p>
             </div>
 
-            <div class="glass-heavy p-10 rounded-3xl md:col-span-2">
-                <h3 class="text-2xl heading-font font-bold text-white mb-4">Unhackable Static Security</h3>
-                <p class="text-gray-400 text-sm leading-relaxed max-w-3xl">Without databases to breach or outdated third-party plugins to exploit, our pure HTML websites provide impenetrable, fortress-level security for Saudi enterprise brands.</p>
+            <div class="glass-heavy p-8 sm:p-10 rounded-3xl md:col-span-2">
+                <h3 data-i18n="philCard3Title" class="text-2xl heading-font font-bold text-white mb-4">Hardened Static Security</h3>
+                <p data-i18n="philCard3Desc" class="text-gray-400 text-sm leading-relaxed max-w-3xl">Without public databases to breach or outdated third-party CMS plugins to exploit, pure static HTML websites dramatically reduce the attack surface for Saudi enterprise brands.</p>
             </div>
         </div>
     </section>
 
-    <!-- Performance Comparison -->
-    <section id="performance" class="relative z-10 py-24 px-6 max-w-6xl mx-auto border-t border-white/10">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 text-center">Benchmark Audit</h2>
+    <!-- Architecture Comparison -->
+    <section id="performance" class="relative z-10 py-20 sm:py-24 px-5 sm:px-6 max-w-6xl mx-auto border-t border-white/10">
+        <h2 data-i18n="compHeading" class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 sm:mb-16 text-center">Architecture Comparison</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Bloated CMS -->
-            <div class="glass-light p-10 rounded-3xl border-red-500/20 opacity-70">
-                <div class="inline-block px-3 py-1 bg-red-500/10 text-red-400 text-xs font-bold tracking-widest rounded-full mb-6">STANDARD CMS (WIX/WP)</div>
+            <!-- Standard CMS -->
+            <div class="glass-light p-8 sm:p-10 rounded-3xl border-red-500/20 opacity-80">
+                <div data-i18n="compCmsBadge" class="inline-block px-3 py-1 bg-red-500/10 text-red-400 text-xs font-bold tracking-widest rounded-full mb-6">STANDARD CMS (WIX / WP)</div>
                 <div class="space-y-6">
                     <div>
-                        <p class="text-sm text-gray-500 mb-1">Load Time</p>
-                        <p class="text-3xl heading-font text-white">3.8 Seconds <span class="text-red-500 text-sm">Bloated</span></p>
+                        <p data-i18n="compDeliveryLabel" class="text-sm text-gray-500 mb-1">Delivery Model</p>
+                        <p class="text-2xl sm:text-3xl heading-font text-white">
+                            <span data-i18n="compCmsDelivery">Database &amp; Heavy Scripts</span>
+                            <span data-i18n="compCmsTag" class="text-red-400 text-xs sm:text-sm block sm:inline sm:ms-2">Server Overhead</span>
+                        </p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-500 mb-1">Google Core Web Vitals</p>
-                        <p class="text-3xl heading-font text-white">42 / 100</p>
+                        <p data-i18n="compControlLabel" class="text-sm text-gray-500 mb-1">Code Portability</p>
+                        <p data-i18n="compCmsControl" class="text-2xl sm:text-3xl heading-font text-white">Platform-Dependent</p>
                     </div>
-                    <ul class="text-sm text-gray-400 space-y-2 pt-4 border-t border-white/10">
-                        <li>⚠️ SAR 4,500+ Yearly SaaS fees</li>
-                        <li>⚠️ 30+ Vulnerable Plugins</li>
+                    <ul class="text-sm text-gray-400 space-y-3 pt-4 border-t border-white/10">
+                        <li class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path></svg>
+                            <span data-i18n="compCmsBullet1">Recurring platform &amp; plugin subscription fees</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path></svg>
+                            <span data-i18n="compCmsBullet2">Ongoing third-party plugin maintenance</span>
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <!-- Webora HTML -->
-            <div class="glass-heavy p-10 rounded-3xl border-t-2 border-t-white relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
-                <div class="inline-block px-3 py-1 bg-white/10 text-white text-xs font-bold tracking-widest rounded-full mb-6">WEBORA PURE HTML</div>
+            <div class="glass-heavy p-8 sm:p-10 rounded-3xl border-t-2 border-t-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+                <div data-i18n="compWeboraBadge" class="inline-block px-3 py-1 bg-white/10 text-white text-xs font-bold tracking-widest rounded-full mb-6">WEBORA PURE HTML</div>
                 <div class="space-y-6">
                     <div>
-                        <p class="text-sm text-gray-400 mb-1">Load Time</p>
-                        <p class="text-4xl heading-font font-bold text-white">0.38s <span class="text-gray-400 text-sm font-normal">Ultra Fast</span></p>
+                        <p data-i18n="compDeliveryLabel" class="text-sm text-gray-400 mb-1">Delivery Model</p>
+                        <p class="text-2xl sm:text-3xl heading-font font-bold text-white">
+                            <span data-i18n="compWeboraDelivery">Direct Static Assets</span>
+                            <span data-i18n="compWeboraTag" class="text-gray-400 text-xs sm:text-sm font-normal block sm:inline sm:ms-2">Lightweight</span>
+                        </p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-400 mb-1">Google Core Web Vitals</p>
-                        <p class="text-4xl heading-font font-bold text-white">100 / 100 <span class="text-gray-400 text-sm font-normal">Perfect</span></p>
+                        <p data-i18n="compControlLabel" class="text-sm text-gray-400 mb-1">Code Portability</p>
+                        <p class="text-2xl sm:text-3xl heading-font font-bold text-white">
+                            <span data-i18n="compWeboraControl">100% Portable</span>
+                            <span data-i18n="compWeboraTag2" class="text-gray-400 text-xs sm:text-sm font-normal block sm:inline sm:ms-2">Full Ownership</span>
+                        </p>
                     </div>
-                    <ul class="text-sm text-gray-300 space-y-2 pt-4 border-t border-white/10 font-medium">
-                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> SAR 0 Third-Party Subscription</li>
-                        <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Zero DB Vulnerability</li>
+                    <ul class="text-sm text-gray-300 space-y-3 pt-4 border-t border-white/10 font-medium">
+                        <li class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"></path></svg>
+                            <span data-i18n="compWeboraBullet1">SAR 0 mandatory third-party software fees</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"></path></svg>
+                            <span data-i18n="compWeboraBullet2">No public database or CMS plugin exposure</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -271,153 +351,441 @@
     </section>
 
     <!-- Pricing -->
-    <section id="pricing" class="relative z-10 py-24 px-6 max-w-6xl mx-auto border-t border-white/10">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Investment Tiers</h2>
-            <p class="text-gray-400 max-w-xl mx-auto">One-time payment for 100% Code Ownership. <br> Optional SAR 50/month fee for Webora to actively host and maintain your live deployment.</p>
+    <section id="pricing" class="relative z-10 py-20 sm:py-24 px-5 sm:px-6 max-w-6xl mx-auto border-t border-white/10">
+        <div class="text-center mb-14 sm:mb-16">
+            <h2 data-i18n="priceHeading" class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Investment Tiers</h2>
+            <p data-i18n="priceSubheading" class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+                One-time payment for 100% Code Ownership with zero hidden fees. Optional SAR 50/month for Webora to actively host and maintain your live deployment (domain registration billed at registrar cost).
+            </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
             
             <!-- Tier 1 -->
             <div class="glass-light p-8 rounded-3xl">
-                <h3 class="text-xl heading-font font-bold text-white mb-2">Startup Core</h3>
-                <p class="text-sm text-gray-400 mb-6">For emerging Saudi businesses requiring an ultra-fast storefront.</p>
+                <h3 data-i18n="tier1Title" class="text-xl heading-font font-bold text-white mb-2">Startup Core</h3>
+                <p data-i18n="tier1Desc" class="text-sm text-gray-400 mb-6">For emerging Saudi businesses requiring a fast, clean storefront.</p>
                 <div class="mb-6">
-                    <span class="text-sm text-gray-500">SAR</span>
+                    <span data-i18n="currencySar" class="text-sm text-gray-500">SAR</span>
                     <span class="text-4xl heading-font font-bold text-white">1,500</span>
                     <span class="text-gray-500 text-sm">- 2,700</span>
                 </div>
                 <ul class="text-sm text-gray-300 space-y-3 mb-8">
-                    <li>• Custom Pure HTML Architecture</li>
-                    <li>• Mobile-First Responsive UI</li>
-                    <li>• < 0.4s Sub-Second Speed</li>
-                    <li>• WhatsApp & Email Routing</li>
+                    <li data-i18n="tier1F1">• Custom Pure HTML Architecture</li>
+                    <li data-i18n="tier1F2">• Mobile-First Responsive UI</li>
+                    <li data-i18n="tier1F3">• High-Speed Static Performance</li>
+                    <li data-i18n="tier1F4">• WhatsApp &amp; Email Routing</li>
                 </ul>
-                <button class="w-full py-3 rounded-xl border border-white/20 hover:bg-white hover:text-black transition-colors text-sm font-bold">Select Core</button>
+                <button type="button" data-package="Startup Core (SAR 1,500 - 2,700)" data-i18n="tier1Btn" class="select-package-btn w-full py-3.5 rounded-xl border border-white/20 hover:bg-white hover:text-black transition-colors text-sm font-bold cursor-pointer">
+                    Select Core
+                </button>
             </div>
 
             <!-- Tier 2 (Highlighted) -->
-            <div class="glass-heavy p-10 rounded-3xl border-2 border-white/20 relative transform lg:-translate-y-4 shadow-2xl">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">Most Popular</div>
-                <h3 class="text-2xl heading-font font-bold text-white mb-2">Corporate Sovereign</h3>
-                <p class="text-sm text-gray-400 mb-6">Full corporate digital presence for established enterprises demanding luxury aesthetics.</p>
+            <div class="glass-heavy p-8 sm:p-10 rounded-3xl border-2 border-white/20 relative transform lg:-translate-y-4 shadow-2xl">
+                <div data-i18n="popularBadge" class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black px-3.5 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase whitespace-nowrap">Most Popular</div>
+                <h3 data-i18n="tier2Title" class="text-2xl heading-font font-bold text-white mb-2">Corporate Sovereign</h3>
+                <p data-i18n="tier2Desc" class="text-sm text-gray-400 mb-6">Full corporate digital presence for established enterprises demanding luxury aesthetics.</p>
                 <div class="mb-6">
-                    <span class="text-sm text-gray-300">SAR</span>
+                    <span data-i18n="currencySar" class="text-sm text-gray-300">SAR</span>
                     <span class="text-5xl heading-font font-bold text-white">2,800</span>
                     <span class="text-gray-400 text-sm">- 4,300</span>
                 </div>
                 <ul class="text-sm text-gray-200 space-y-3 mb-8 font-medium">
-                    <li>• Everything in Startup Core</li>
-                    <li>• Multi-page B2B / B2C Architecture</li>
-                    <li>• Advanced Glassmorphism & Motion</li>
-                    <li>• Arabic / English Bilingual Ready</li>
-                    <li>• Priority Post-Handover Care</li>
+                    <li data-i18n="tier2F1">• Everything in Startup Core</li>
+                    <li data-i18n="tier2F2">• Multi-page B2B / B2C Architecture</li>
+                    <li data-i18n="tier2F3">• Advanced Glassmorphism &amp; Motion</li>
+                    <li data-i18n="tier2F4">• Arabic / English Bilingual Ready</li>
+                    <li data-i18n="tier2F5">• Priority Post-Handover Care</li>
                 </ul>
-                <button class="w-full py-4 rounded-xl bg-white text-black hover:bg-gray-200 transition-colors text-sm font-bold">Select Sovereign</button>
+                <button type="button" data-package="Corporate Sovereign (SAR 2,800 - 4,300)" data-i18n="tier2Btn" class="select-package-btn w-full py-4 rounded-xl bg-white text-black hover:bg-gray-200 transition-colors text-sm font-bold cursor-pointer">
+                    Select Sovereign
+                </button>
             </div>
 
             <!-- Tier 3 -->
             <div class="glass-light p-8 rounded-3xl">
-                <h3 class="text-xl heading-font font-bold text-white mb-2">Custom Enterprise</h3>
-                <p class="text-sm text-gray-400 mb-6">Tailored digital ecosystems and custom web applications for large-scale ops.</p>
+                <h3 data-i18n="tier3Title" class="text-xl heading-font font-bold text-white mb-2">Custom Enterprise</h3>
+                <p data-i18n="tier3Desc" class="text-sm text-gray-400 mb-6">Tailored digital ecosystems and custom web applications for large-scale ops.</p>
                 <div class="mb-6">
-                    <span class="text-3xl heading-font font-bold text-white">Bespoke</span>
+                    <span data-i18n="tier3Price" class="text-3xl heading-font font-bold text-white">Bespoke</span>
                 </div>
                 <ul class="text-sm text-gray-300 space-y-3 mb-8">
-                    <li>• Full Digital Ecosystem Design</li>
-                    <li>• Headless Backend Integrations</li>
-                    <li>• Custom Analytics & Tracking</li>
-                    <li>• VIP SLA & Tech Support</li>
+                    <li data-i18n="tier3F1">• Full Digital Ecosystem Design</li>
+                    <li data-i18n="tier3F2">• Headless Backend Integrations</li>
+                    <li data-i18n="tier3F3">• Custom Analytics &amp; Tracking</li>
+                    <li data-i18n="tier3F4">• Dedicated Tech Support</li>
                 </ul>
-                <button class="w-full py-3 rounded-xl border border-white/20 hover:bg-white hover:text-black transition-colors text-sm font-bold">Request Quote</button>
+                <button type="button" data-package="Custom Enterprise Architecture" data-i18n="tier3Btn" class="select-package-btn w-full py-3.5 rounded-xl border border-white/20 hover:bg-white hover:text-black transition-colors text-sm font-bold cursor-pointer">
+                    Request Quote
+                </button>
             </div>
 
         </div>
     </section>
 
-   <!-- Contact Form -->
-    <section id="contact" class="relative z-10 py-24 px-6 max-w-4xl mx-auto border-t border-white/10">
-        <div class="glass-heavy p-10 md:p-14 rounded-[2.5rem]">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Initiate Your Digital Upgrade</h2>
-                <p class="text-gray-400 text-sm">Based in Al Khobar. Serving elite clients across KSA.</p>
+    <!-- Contact Form (Untouched Web3Forms POST Endpoint & Keys) -->
+    <section id="contact" class="relative z-10 py-20 sm:py-24 px-5 sm:px-6 max-w-4xl mx-auto border-t border-white/10">
+        <div class="glass-heavy p-7 sm:p-10 md:p-14 rounded-[2rem] sm:rounded-[2.5rem]">
+            <div class="text-center mb-8 sm:mb-10">
+                <h2 data-i18n="formHeading" class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">Initiate Your Digital Upgrade</h2>
+                <p data-i18n="formSubheading" class="text-gray-400 text-sm">Based in Al Khobar. Serving clients across KSA.</p>
             </div>
             
-            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+            <form id="inquiryForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
                 <!-- Web3Forms Access Key -->
                 <input type="hidden" name="access_key" value="1a9d07e2-8f55-4eed-a6ee-7ffd8d501057">
                 <input type="hidden" name="subject" value="New Website Inquiry - Webora Teams">
+                <!-- Web3Forms Built-in Honeypot Anti-Spam Protection -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Your Name</label>
-                        <input type="text" name="name" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="e.g. Ahmed Al-Dosari">
+                        <label for="field-name" data-i18n="labelName" class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Your Name</label>
+                        <input id="field-name" type="text" name="name" maxlength="100" required data-i18n-placeholder="phName" class="sanitize-input w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="e.g. Ahmed Al-Dosari">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Phone / WhatsApp</label>
-                        <input type="tel" name="phone" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="+966 5X XXX XXXX">
+                        <label for="field-phone" data-i18n="labelPhone" class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Phone / WhatsApp</label>
+                        <input id="field-phone" type="tel" name="phone" maxlength="25" required dir="ltr" class="sanitize-input w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="+966 5X XXX XXXX">
                     </div>
                 </div>
                 
                 <div>
-                    <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Email Address</label>
-                    <input type="email" name="email" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="name@company.com">
+                    <label for="field-email" data-i18n="labelEmail" class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Email Address</label>
+                    <input id="field-email" type="email" name="email" maxlength="120" required dir="ltr" class="sanitize-input w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="name@company.com">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Selected Package</label>
-                    <select name="package" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-gray-300 focus:outline-none focus:border-white/40 transition-colors">
-                        <option class="bg-black text-white">Startup Core (SAR 1,500 - 2,700)</option>
-                        <option class="bg-black text-white" selected>Corporate Sovereign (SAR 2,800 - 4,300)</option>
-                        <option class="bg-black text-white">Custom Enterprise Architecture</option>
+                    <label for="field-package" data-i18n="labelPackage" class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Selected Package</label>
+                    <select id="field-package" name="package" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-gray-300 focus:outline-none focus:border-white/40 transition-colors">
+                        <option value="Startup Core (SAR 1,500 - 2,700)" data-i18n="optCore" class="bg-black text-white">Startup Core (SAR 1,500 - 2,700)</option>
+                        <option value="Corporate Sovereign (SAR 2,800 - 4,300)" data-i18n="optSovereign" class="bg-black text-white" selected>Corporate Sovereign (SAR 2,800 - 4,300)</option>
+                        <option value="Custom Enterprise Architecture" data-i18n="optEnterprise" class="bg-black text-white">Custom Enterprise Architecture</option>
                     </select>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Project Parameters / Requirements</label>
-                    <textarea name="message" rows="4" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors resize-none" placeholder="Briefly describe your business and digital goals..."></textarea>
+                    <label for="field-message" data-i18n="labelMessage" class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Project Parameters / Requirements</label>
+                    <textarea id="field-message" name="message" rows="4" maxlength="2000" required data-i18n-placeholder="phMessage" class="sanitize-input w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white/40 transition-colors resize-none" placeholder="Briefly describe your business and digital goals..."></textarea>
                 </div>
                 
-                <button type="submit" class="w-full py-4 rounded-xl bg-white text-black font-bold tracking-widest uppercase text-sm hover:bg-gray-200 transition-colors mt-4 cursor-pointer">
+                <button type="submit" data-i18n="submitBtn" class="w-full py-4 rounded-xl bg-white text-black font-bold tracking-widest uppercase text-sm hover:bg-gray-200 transition-colors mt-4 cursor-pointer">
                     Submit Inquiry to Webora
                 </button>
             </form>
         </div>
     </section>
+
     <!-- Footer -->
-    <footer class="relative z-10 py-10 px-6 border-t border-white/10 mt-10">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+    <footer class="relative z-10 py-10 px-5 sm:px-6 border-t border-white/10 mt-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-start">
             <div>
                 <p class="heading-font font-bold text-white text-lg">WEBORA TEAMS</p>
-                <p class="text-xs text-gray-500 mt-1">© 2026 Webora Teams. Al Khobar, KSA. All Rights Reserved.</p>
+                <p data-i18n="footerCopyright" class="text-xs text-gray-500 mt-1">© 2026 Webora Teams. Al Khobar, KSA. All Rights Reserved.</p>
             </div>
-            <div class="flex items-center gap-4 text-xs font-medium text-gray-400">
-                <a href="tel:+966507516446" class="hover:text-white transition-colors">+966 50 751 6446</a>
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-medium text-gray-400">
+                <a href="#philosophy" data-i18n="navPhilosophy" class="hover:text-white transition-colors">Philosophy</a>
                 <span>•</span>
-                <a href="mailto:webora.teams@gmail.com" class="hover:text-white transition-colors">webora.teams@gmail.com</a>
+                <a href="#pricing" data-i18n="navPricing" class="hover:text-white transition-colors">Pricing</a>
                 <span>•</span>
-                <a href="https://www.facebook.com/Webora.teams" target="_blank" class="hover:text-white transition-colors">Facebook</a>
+                <a href="tel:+966507516446" dir="ltr" class="hover:text-white transition-colors">+966 50 751 6446</a>
                 <span>•</span>
-                <a href="https://www.tiktok.com/@webora.team" target="_blank" class="hover:text-white transition-colors">TikTok</a>
+                <a href="mailto:webora.teams@gmail.com" dir="ltr" class="hover:text-white transition-colors">webora.teams@gmail.com</a>
+                <span>•</span>
+                <a href="https://www.facebook.com/Webora.teams" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Facebook</a>
+                <span>•</span>
+                <a href="https://www.tiktok.com/@webora.team" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">TikTok</a>
             </div>
         </div>
     </footer>
 
-    <!-- Initialize Smooth Scrolling -->
+    <!-- Initialize Smooth Scrolling, Bilingual Engine, & Input Sanitization -->
     <script>
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-        })
-        function raf(time) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
-        }
-        requestAnimationFrame(raf)
+        (function () {
+            // 1. Lenis Smooth Scrolling
+            if (typeof Lenis !== 'undefined') {
+                const lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    smoothWheel: true
+                });
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            }
+
+            // 2. Bilingual Translation Dictionary (EN / AR)
+            const translations = {
+                en: {
+                    pageTitle: "Webora Teams | Pure Digital Architecture",
+                    toggleBtn: "عربي",
+                    navLocation: "AL KHOBAR",
+                    navPhilosophy: "Philosophy",
+                    navPerformance: "Comparison",
+                    navPricing: "Pricing",
+                    navCta: "Start Project",
+                    heroBadge: "Pure Digital Architecture",
+                    heroTitle1: "The Pinnacle of",
+                    heroTitle2: "Digital Sovereignty",
+                    heroTitle3: "& Luxury.",
+                    heroSubtitle: "We craft custom, high-speed pure HTML digital platforms for visionary Saudi brands. Zero platform lock-in, 100% full code ownership, and clean architecture.",
+                    stat1Label: "Code Ownership",
+                    stat2Value: "Zero",
+                    stat2Label: "CMS Plugin Bloat",
+                    stat3Value: "SAR 50/mo",
+                    stat3Label: "Optional Hosting & Maint.",
+                    marquee1: "• PURE HTML5 ARCHITECTURE",
+                    marquee2: "• CSS3 LIQUID GLASSMORPHISM",
+                    marquee3: "• VANILLA JS ES6+ LOGIC",
+                    marquee4: "• LIGHTWEIGHT STATIC DELIVERY",
+                    marquee5: "• SAUDI COMMERCE READY",
+                    marquee6: "• ZERO PLUGIN VULNERABILITIES",
+                    marquee7: "• AL KHOBAR ENGINEERING STANDARDS",
+                    philHeading: "\"We Build. You Own.\"",
+                    philSubheading: "Core Philosophy & Pure Code Sovereignty",
+                    philCard1Title: "Pure Code Sovereignty",
+                    philCard1Desc: "No WordPress bloat. No Shopify platform taxes. No Wix lock-in. We hand deliver 100% clean, raw HTML/CSS/JS code directly to you.",
+                    philCard2Title: "High-Speed Performance",
+                    philCard2Desc: "Engineered for rapid asset delivery across Al Khobar, Riyadh, and Jeddah, giving your visitors an immediate, responsive experience on mobile and desktop.",
+                    philCard3Title: "Hardened Static Security",
+                    philCard3Desc: "Without public databases to breach or outdated third-party CMS plugins to exploit, pure static HTML websites dramatically reduce the attack surface for Saudi enterprise brands.",
+                    compHeading: "Architecture Comparison",
+                    compCmsBadge: "STANDARD CMS (WIX / WP)",
+                    compDeliveryLabel: "Delivery Model",
+                    compCmsDelivery: "Database & Heavy Scripts",
+                    compCmsTag: "Server Overhead",
+                    compControlLabel: "Code Portability",
+                    compCmsControl: "Platform-Dependent",
+                    compCmsBullet1: "Recurring platform & plugin subscription fees",
+                    compCmsBullet2: "Ongoing third-party plugin maintenance",
+                    compWeboraBadge: "WEBORA PURE HTML",
+                    compWeboraDelivery: "Direct Static Assets",
+                    compWeboraTag: "Lightweight",
+                    compWeboraControl: "100% Portable",
+                    compWeboraTag2: "Full Ownership",
+                    compWeboraBullet1: "SAR 0 mandatory third-party software fees",
+                    compWeboraBullet2: "No public database or CMS plugin exposure",
+                    priceHeading: "Investment Tiers",
+                    priceSubheading: "One-time payment for 100% Code Ownership with zero hidden fees. Optional SAR 50/month for Webora to actively host and maintain your live deployment (domain registration billed at registrar cost).",
+                    currencySar: "SAR",
+                    tier1Title: "Startup Core",
+                    tier1Desc: "For emerging Saudi businesses requiring a fast, clean storefront.",
+                    tier1F1: "• Custom Pure HTML Architecture",
+                    tier1F2: "• Mobile-First Responsive UI",
+                    tier1F3: "• High-Speed Static Performance",
+                    tier1F4: "• WhatsApp & Email Routing",
+                    tier1Btn: "Select Core",
+                    popularBadge: "Most Popular",
+                    tier2Title: "Corporate Sovereign",
+                    tier2Desc: "Full corporate digital presence for established enterprises demanding luxury aesthetics.",
+                    tier2F1: "• Everything in Startup Core",
+                    tier2F2: "• Multi-page B2B / B2C Architecture",
+                    tier2F3: "• Advanced Glassmorphism & Motion",
+                    tier2F4: "• Arabic / English Bilingual Ready",
+                    tier2F5: "• Priority Post-Handover Care",
+                    tier2Btn: "Select Sovereign",
+                    tier3Title: "Custom Enterprise",
+                    tier3Desc: "Tailored digital ecosystems and custom web applications for large-scale ops.",
+                    tier3Price: "Bespoke",
+                    tier3F1: "• Full Digital Ecosystem Design",
+                    tier3F2: "• Headless Backend Integrations",
+                    tier3F3: "• Custom Analytics & Tracking",
+                    tier3F4: "• Dedicated Tech Support",
+                    tier3Btn: "Request Quote",
+                    formHeading: "Initiate Your Digital Upgrade",
+                    formSubheading: "Based in Al Khobar. Serving clients across KSA.",
+                    labelName: "Your Name",
+                    phName: "e.g. Ahmed Al-Dosari",
+                    labelPhone: "Phone / WhatsApp",
+                    labelEmail: "Email Address",
+                    labelPackage: "Selected Package",
+                    optCore: "Startup Core (SAR 1,500 - 2,700)",
+                    optSovereign: "Corporate Sovereign (SAR 2,800 - 4,300)",
+                    optEnterprise: "Custom Enterprise Architecture",
+                    labelMessage: "Project Parameters / Requirements",
+                    phMessage: "Briefly describe your business and digital goals...",
+                    submitBtn: "Submit Inquiry to Webora",
+                    footerCopyright: "© 2026 Webora Teams. Al Khobar, KSA. All Rights Reserved."
+                },
+                ar: {
+                    pageTitle: "ويبورا تيمز | هندسة رقمية نقية",
+                    toggleBtn: "EN",
+                    navLocation: "الخبر",
+                    navPhilosophy: "فلسفتنا",
+                    navPerformance: "المقارنة",
+                    navPricing: "الباقات",
+                    navCta: "ابدأ مشروعك",
+                    heroBadge: "هندسة رقمية نقية",
+                    heroTitle1: "قمة",
+                    heroTitle2: "السيادة الرقمية",
+                    heroTitle3: "والفخامة.",
+                    heroSubtitle: "نصمم منصات رقمية مخصصة وعالية السرعة بلغة HTML النقية للعلامات التجارية السعودية الطموحة. بدون قيود المنصات الجاهزة، مع ملكية كاملة للكود بنسبة 100% وبنية برمجية متقنة.",
+                    stat1Label: "ملكية الكود بالكامل",
+                    stat2Value: "صفر",
+                    stat2Label: "إضافات مثقلة للأداء",
+                    stat3Value: "50 ريال/شهرياً",
+                    stat3Label: "استضافة وصيانة اختيارية",
+                    marquee1: "• بنية HTML5 نقية",
+                    marquee2: "• تصميم زجاجي متطور CSS3",
+                    marquee3: "• برمجة جافاسكربت نقية ES6+",
+                    marquee4: "• تحميل ثابت فائق الخفة",
+                    marquee5: "• جاهز للأعمال في المملكة",
+                    marquee6: "• بدون ثغرات الإضافات الجاهزة",
+                    marquee7: "• معايير هندسية من الخبر",
+                    philHeading: "\"نحن نبني. وأنت تملك.\"",
+                    philSubheading: "فلسفتنا الأساسية والسيادة الكاملة على الكود",
+                    philCard1Title: "سيادة كاملة على الكود",
+                    philCard1Desc: "بدون ثقل ووردبريس، وبدون رسوم منصات شوبيفاي المستمرة، وبدون قيود ويكس. نسلمك الكود البرمجي المصدري HTML/CSS/JS نظيفاً ومباشرة إليك.",
+                    philCard2Title: "أداء سريع واستجابة فورية",
+                    philCard2Desc: "مبني لتحميل الملفات بسرعة عالية في الخبر والرياض وجدة، ليمنح زوار موقعك تجربة تصفح سلسة ومباشرة على الجوال وسطح المكتب.",
+                    philCard3Title: "أمان ثابت عالي المستوى",
+                    philCard3Desc: "مع عدم وجود قواعد بيانات عامة عرضة للاختراق أو إضافات خارجية قديمة يمكن استغلالها، تقلل مواقع HTML الثابتة من مخاطر الثغرات الأمنية بشكل جذري.",
+                    compHeading: "مقارنة البنية التقنية",
+                    compCmsBadge: "أنظمة الإدارة التقليدية (WIX / WP)",
+                    compDeliveryLabel: "طريقة التحميل",
+                    compCmsDelivery: "قواعد بيانات وسكربتات ثقيلة",
+                    compCmsTag: "عبء على الخادم",
+                    compControlLabel: "قابلية نقل الكود",
+                    compCmsControl: "مرتبط بالمنصة",
+                    compCmsBullet1: "رسوم اشتراكات وإضافات متكررة",
+                    compCmsBullet2: "تحديثات وصيانة مستمرة لإضافات خارجية",
+                    compWeboraBadge: "ويبورا HTML النقي",
+                    compWeboraDelivery: "ملفات ثابتة مباشرة",
+                    compWeboraTag: "خفيف وسريع",
+                    compWeboraControl: "قابل للنقل 100%",
+                    compWeboraTag2: "ملكية كاملة",
+                    compWeboraBullet1: "صفر ريال اشتراكات برمجية إلزامية",
+                    compWeboraBullet2: "بدون قواعد بيانات عامة أو ثغرات إضافات",
+                    priceHeading: "باقات الاستثمار",
+                    priceSubheading: "دفعة واحدة لامتلاك الكود بنسبة 100% بدون أي رسوم مخفية. اشتراك اختياري بقيمة 50 ريال شهرياً للاستضافة والصيانة المستمرة (رسوم النطاق حسب سعر المسجل الرسمي).",
+                    currencySar: "ريال",
+                    tier1Title: "باقة الانطلاق (Core)",
+                    tier1Desc: "للشركات السعودية الناشئة التي تحتاج واجهة رقمية سريعة ونظيفة.",
+                    tier1F1: "• بنية HTML نقية ومخصصة",
+                    tier1F2: "• تصميم متجاوب للجوال أولاً",
+                    tier1F3: "• أداء ثابت وعالي السرعة",
+                    tier1F4: "• ربط مباشر مع واتساب والبريد الإلكتروني",
+                    tier1Btn: "اختر باقة الانطلاق",
+                    popularBadge: "الأكثر طلباً",
+                    tier2Title: "باقة الشركات (Sovereign)",
+                    tier2Desc: "حضور رقمي متكامل للشركات والمؤسسات الباحثة عن تصميم فاخر وهوية قوية.",
+                    tier2F1: "• جميع مميزات باقة الانطلاق",
+                    tier2F2: "• بنية متعددة الصفحات للشركات والأفراد",
+                    tier2F3: "• تصميم زجاجي متقدم وحركة سلسة",
+                    tier2F4: "• دعم ثنائي اللغة (عربي / إنجليزي)",
+                    tier2F5: "• أولوية في الدعم بعد التسليم",
+                    tier2Btn: "اختر باقة الشركات",
+                    tier3Title: "حلول المؤسسات المخصصة",
+                    tier3Desc: "أنظمة رقمية مصممة خصيصاً وتطبيقات ويب متكاملة للعمليات واسعة النطاق.",
+                    tier3Price: "حسب الطلب",
+                    tier3F1: "• تصميم منظومة رقمية متكاملة",
+                    tier3F2: "• ربط أنظمة خلفية مرنة (Headless)",
+                    tier3F3: "• تحليلات وتتبع مخصص للأداء",
+                    tier3F4: "• دعم تقني مخصص",
+                    tier3Btn: "اطلب عرض سعر",
+                    formHeading: "ابدأ تطوير حضورك الرقمي",
+                    formSubheading: "مقرنا في الخبر، ونخدم عملاءنا في جميع أنحاء المملكة.",
+                    labelName: "الاسم الكامل",
+                    phName: "مثال: أحمد الدوسري",
+                    labelPhone: "رقم الجوال / واتساب",
+                    labelEmail: "البريد الإلكتروني",
+                    labelPackage: "الباقة المختارة",
+                    optCore: "باقة الانطلاق (1,500 - 2,700 ريال)",
+                    optSovereign: "باقة الشركات (2,800 - 4,300 ريال)",
+                    optEnterprise: "حلول المؤسسات المخصصة",
+                    labelMessage: "تفاصيل ومتطلبات المشروع",
+                    phMessage: "اشرح باختصار طبيعة نشاطك التجاري وأهدافك الرقمية...",
+                    submitBtn: "إرسال الطلب إلى ويبورا",
+                    footerCopyright: "© 2026 Webora Teams. الخبر، المملكة العربية السعودية. جميع الحقوق محفوظة."
+                }
+            };
+
+            let currentLang = 'en';
+            try {
+                const savedLang = localStorage.getItem('webora_lang');
+                if (savedLang === 'ar' || savedLang === 'en') {
+                    currentLang = savedLang;
+                }
+            } catch (e) {}
+
+            function applyLanguage(lang) {
+                const dict = translations[lang] || translations.en;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                document.title = dict.pageTitle;
+
+                const toggleBtn = document.getElementById('langToggle');
+                if (toggleBtn) toggleBtn.textContent = dict.toggleBtn;
+
+                document.querySelectorAll('[data-i18n]').forEach((el) => {
+                    const key = el.getAttribute('data-i18n');
+                    if (dict[key] !== undefined) {
+                        el.textContent = dict[key];
+                    }
+                });
+
+                document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (dict[key] !== undefined) {
+                        el.setAttribute('placeholder', dict[key]);
+                    }
+                });
+
+                try {
+                    localStorage.setItem('webora_lang', lang);
+                } catch (e) {}
+            }
+
+            applyLanguage(currentLang);
+
+            document.getElementById('langToggle').addEventListener('click', () => {
+                currentLang = currentLang === 'en' ? 'ar' : 'en';
+                applyLanguage(currentLang);
+            });
+
+            // 3. Mobile Navigation Drawer
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.toggle('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+                });
+                document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            // 4. Pricing Buttons -> Smooth Scroll & Auto-Select Package
+            const packageSelect = document.getElementById('field-package');
+            const contactSection = document.getElementById('contact');
+            document.querySelectorAll('.select-package-btn').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const selectedPkg = btn.getAttribute('data-package');
+                    if (packageSelect && selectedPkg) {
+                        packageSelect.value = selectedPkg;
+                    }
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // 5. Real-Time Client-Side Input Sanitization (XSS Guard without altering POST submission)
+            document.querySelectorAll('.sanitize-input').forEach((input) => {
+                input.addEventListener('input', () => {
+                    const cleaned = input.value.replace(/[<>]/g, '');
+                    if (cleaned !== input.value) {
+                        input.value = cleaned;
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 </html>
